@@ -8,10 +8,9 @@ import net.javaguides.bibliotheque.Model.Livre;
 
 public interface LivreRepository extends JpaRepository<Livre, Long> {
 	
-	  List<Livre> findByTitreContainingAndAuteurContainingAndCategorieContainingAndDisponibilite(
-	            String titre, String auteur, String categorie, boolean disponible);
+	  List<Livre> findByTitreContainingAndAuteurContainingAndCategorieContaining(
+	            String titre, String auteur, String categorie);
 	  
-	  List<Livre> findByCategorie(String categorie);
-	
+	  List<Livre> findByDisponibilite(boolean disponibilite);
 }
 
