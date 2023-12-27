@@ -37,6 +37,8 @@ public class Livre {
 	@Column(name = "isbn")
 	private String isbn;
  
+	
+	
 	@Column(name = "nb_exemplaires")
     private Long nbExemplaires;
 	
