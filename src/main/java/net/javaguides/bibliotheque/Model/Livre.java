@@ -2,14 +2,11 @@ package net.javaguides.bibliotheque.Model;
 
 import lombok.Data;
 import java.util.Date;
-import java.util.List;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -32,20 +29,22 @@ public class Livre {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "datePublication")
-	
 	private Date datePublication;
+	
 	@Column(name = "isbn")
 	private String isbn;
-
-	@Column(name = "categorie")
-	private String categorie;
-
-	@Column(name = "disponibilite")
-	private boolean disponibilite;
-
-	@OneToMany(mappedBy = "livre", cascade = CascadeType.ALL)
-	private List<ExemplaireLivre> exemplaires;
+ 
 	
+	
+	@Column(name = "nb_exemplaires")
+    private Long nbExemplaires;
+	
+	 @Column(name = "disponibilite")
+	 private boolean disponibilite;
+	
+	
+	
+
 	
 
 	// Getters and setters
@@ -89,14 +88,14 @@ public class Livre {
 		this.isbn = isbn;
 	}
 
-	public String getCategorie() {
-		return categorie;
+	public Long getNbExemplaires() {
+		return nbExemplaires;
 	}
 
-	public void setCategorie(String categorie) {
-		this.categorie = categorie;
+	public void setNbExemplaires(Long nbExemplaires) {
+		this.nbExemplaires = nbExemplaires;
 	}
-
+	
 	public boolean isDisponibilite() {
 		return disponibilite;
 	}
@@ -104,13 +103,9 @@ public class Livre {
 	public void setDisponibilite(boolean disponibilite) {
 		this.disponibilite = disponibilite;
 	}
+	
 
-	public List<ExemplaireLivre> getExemplaires() {
-		return exemplaires;
-	}
+	
 
-	public void setExemplaires(List<ExemplaireLivre> exemplaires) {
-		this.exemplaires = exemplaires;
-	}
-
+	
 }
