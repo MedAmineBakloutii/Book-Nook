@@ -36,15 +36,12 @@ public class Livre {
 	private Date datePublication;
 	@Column(name = "isbn")
 	private String isbn;
-
-	@Column(name = "categorie")
-	private String categorie;
-
-	@Column(name = "disponibilite")
-	private boolean disponibilite;
-
-	@OneToMany(mappedBy = "livre", cascade = CascadeType.ALL)
-	private List<ExemplaireLivre> exemplaires;
+ 
+	@Column (name="copiesDisponibles")
+	private Long copiesDisponibles;
+	
+	
+	
 	
 	
 
@@ -89,28 +86,15 @@ public class Livre {
 		this.isbn = isbn;
 	}
 
-	public String getCategorie() {
-		return categorie;
+	public Long getCopiesDisponibles() {
+		return copiesDisponibles;
 	}
 
-	public void setCategorie(String categorie) {
-		this.categorie = categorie;
+	public void setCopiesDisponibles(Long copiesDisponibles) {
+		this.copiesDisponibles = copiesDisponibles;
 	}
 
-	public boolean isDisponibilite() {
-		return disponibilite;
-	}
+	
 
-	public void setDisponibilite(boolean disponibilite) {
-		this.disponibilite = disponibilite;
-	}
-
-	public List<ExemplaireLivre> getExemplaires() {
-		return exemplaires;
-	}
-
-	public void setExemplaires(List<ExemplaireLivre> exemplaires) {
-		this.exemplaires = exemplaires;
-	}
-
+	
 }
