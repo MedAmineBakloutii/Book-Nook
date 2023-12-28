@@ -1,6 +1,7 @@
 package net.javaguides.bibliotheque.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import net.javaguides.bibliotheque.Model.Livre;
@@ -69,7 +70,6 @@ public class LivreController {
     public void saveLivre(@RequestBody Livre livre) {
         livreService.saveLivre(livre);
     }
-
 
 
   

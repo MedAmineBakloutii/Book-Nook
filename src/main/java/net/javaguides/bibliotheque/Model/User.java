@@ -45,4 +45,9 @@ public class User implements Serializable {
     @JoinColumn(name = "role_name")
     private Role role;
 
+	public Long getIdUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
