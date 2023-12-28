@@ -1,9 +1,8 @@
-package net.javaguides.bibliotheque.service;
+package net.javaguides.bibliotheque.Model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import net.javaguides.bibliotheque.Model.Livre;
 import net.javaguides.bibliotheque.Repository.LivreRepository;
 
 import java.util.List;
