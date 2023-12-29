@@ -12,6 +12,8 @@ import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.validation.annotation.Validated;
 
 import java.io.Serializable;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -44,5 +46,15 @@ public class User implements Serializable {
 
     @JoinColumn(name = "role_name")
     private Role role;
+
+    @OneToMany(mappedBy ="user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+
+    private List<Reservation> reservation;
+
+    @OneToMany(mappedBy ="user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+
+    private List<Emprunts> emprunt;
+
+
 
 }
