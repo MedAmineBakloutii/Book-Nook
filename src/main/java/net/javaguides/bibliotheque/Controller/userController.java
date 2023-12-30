@@ -2,7 +2,8 @@ package net.javaguides.bibliotheque.Controller;
 
 import lombok.RequiredArgsConstructor;
 import net.javaguides.bibliotheque.Model.User;
-import net.javaguides.bibliotheque.service.UserService;
+import net.javaguides.bibliotheque.Service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

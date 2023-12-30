@@ -1,4 +1,4 @@
-package net.javaguides.bibliotheque.service;
+package net.javaguides.bibliotheque.Service;
 
 import net.javaguides.bibliotheque.Model.User;
 import net.javaguides.bibliotheque.Repository.UserRepository;
