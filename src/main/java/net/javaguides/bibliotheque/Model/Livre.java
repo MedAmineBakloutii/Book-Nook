@@ -1,15 +1,9 @@
 package net.javaguides.bibliotheque.Model;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
+import java.util.List;
 
 @Data
 @Entity
@@ -29,22 +23,17 @@ public class Livre {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "datePublication")
-	private Date datePublication;
 	
+	private Date datePublication;
 	@Column(name = "isbn")
 	private String isbn;
  
-	
-	
-	@Column(name = "nb_exemplaires")
-    private Long nbExemplaires;
-	
-	 @Column(name = "disponibilite")
-	 private boolean disponibilite;
+	@Column (name="copiesDisponibles")
+	private Long copiesDisponibles;
 	
 	
 	
-
+	
 	
 
 	// Getters and setters
@@ -88,24 +77,24 @@ public class Livre {
 		this.isbn = isbn;
 	}
 
-	public Long getNbExemplaires() {
-		return nbExemplaires;
+	public Long getCopiesDisponibles() {
+		return copiesDisponibles;
 	}
 
-	public void setNbExemplaires(Long nbExemplaires) {
-		this.nbExemplaires = nbExemplaires;
-	}
-	
-	public boolean isDisponibilite() {
-		return disponibilite;
+	public void setCopiesDisponibles(Long copiesDisponibles) {
+		this.copiesDisponibles = copiesDisponibles;
 	}
 
-	public void setDisponibilite(boolean disponibilite) {
-		this.disponibilite = disponibilite;
-	}
-	
+	@OneToMany(mappedBy ="livre",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 
-	
+	private List<Reservation> reservation;
 
-	
+	@OneToMany(mappedBy ="livre",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+
+	private List<Emprunts> emprunt;
+
+
+
+
+
 }
