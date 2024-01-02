@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import net.javaguides.bibliotheque.Model.Livre;
-import net.javaguides.bibliotheque.service.LivreService;
+import net.javaguides.bibliotheque.Service.LivreService;
 
 import java.util.List;
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Liste Emprunts</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <style>
+        .delete{
+            color: navajowhite;
+            background-color: burlywood;
+       }
+        .liste{
+            color: darkslategray;
+
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" th:href="@{/emprunt}">Liste Emprunts</a>
+
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/listeLivre}">Liste Livre</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/allReservation}">Liste Reservation</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<div class ="container">
+    <div class = "row liste">
+        <h1> Liste Emprunts </h1>
+    </div>
+    <br>
+    <br>
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th> ID</th>
+            <th> User</th>
+            <th> Livre</th>
+            <th> Date Debut</th>
+            <th> Date Fin </th>
+            <th> Actions </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each = "emprunt: ${allListEmprunt}">
+            <td th:text = "${emprunt.id}"></td>
+            <td th:text = "${emprunt.getUser().getUsername()}"></td>
+            <td th:text = "${emprunt.getLivre().getTitre()}"></td>
+            <td th:text = "${emprunt.date_debut}"></td>
+            <td th:text = "${emprunt.date_fin}"></td>
+            <td>
+                <a th:href = "@{'/updateEmprunt/' + ${emprunt.id}}"
+                   class = "btn btn-primary">Update</a>
+
+                <a th:href="@{'/deleteEmprunts/' + ${emprunt.id}}" class = "btn btn-danger delete" >Delete</a>
+
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>

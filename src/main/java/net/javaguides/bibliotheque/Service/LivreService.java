@@ -1,4 +1,4 @@
-package net.javaguides.bibliotheque.service;
+package net.javaguides.bibliotheque.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
