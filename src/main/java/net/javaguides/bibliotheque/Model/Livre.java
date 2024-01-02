@@ -28,8 +28,11 @@ public class Livre {
 	@Column(name = "isbn")
 	private String isbn;
  
-	@Column (name="copiesDisponibles")
-	private Long copiesDisponibles;
+	@Column(name = "nb_exemplaires")
+    private Long nbExemplaires;
+
+	 @Column(name = "disponibilite")
+	 private boolean disponibilite;
 	
 	
 	
@@ -77,13 +80,29 @@ public class Livre {
 		this.isbn = isbn;
 	}
 
-	public Long getCopiesDisponibles() {
-		return copiesDisponibles;
+	
+	
+	
+	
+	public Long getNbExemplaires() {
+		return nbExemplaires;
 	}
 
-	public void setCopiesDisponibles(Long copiesDisponibles) {
-		this.copiesDisponibles = copiesDisponibles;
+	public void setNbExemplaires(Long nbExemplaires) {
+		this.nbExemplaires = nbExemplaires;
 	}
+
+	public boolean isDisponibilite() {
+		return disponibilite;
+	}
+
+	public void setDisponibilite(boolean disponibilite) {
+		this.disponibilite = disponibilite;
+	}
+
+
+
+
 
 	@OneToMany(mappedBy ="livre",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 

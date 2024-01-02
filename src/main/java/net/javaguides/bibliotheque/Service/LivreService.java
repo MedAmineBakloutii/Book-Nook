@@ -14,16 +14,80 @@ public class LivreService {
     private LivreRepository livreRepository;
     
     
+    public Livre ajouterLivre(Livre livre) {
+        return livreRepository.save(livre);
+     }
+    
+    
+    public Livre mettreAJourLivre(Long id, Livre livre) {
 
+        // Vérifiez si le livre existe
+        if (livreRepository.existsById(id)) {
+            livre.setId(id);
+            return livreRepository.save(livre);
+        }
+        return null; // Livre non trouvé
+    }
+    
+    public void supprimerLivre(Long id) {
+        livreRepository.deleteById(id);
+    }
+
+    public Livre ajouterExemplaires(Long id, int quantite) {
+        Livre livre = livreRepository.findById(id).orElse(null);
+        if (livre != null) {
+            livre.setNbExemplaires(livre.getNbExemplaires() + quantite);
+            return livreRepository.save(livre);
+        }
+        return null; // Livre non trouvé
+    }
+    
+  //Catalogue en ligne
+    
+    public List<Livre> rechercherLivres(String titre, String auteur, String categorie) {
+        return livreRepository.findByTitreContainingAndAuteurContainingAndCategorieContaining(
+                titre, auteur, categorie);
+    }
 
     public List<Livre> rechercherLivresAvecDisponibilite(String titre, String auteur, String categorie, boolean disponible) {
         return livreRepository.findByTitreContainingAndAuteurContainingAndCategorieContainingAndDisponibilite(
                 titre, auteur, categorie, disponible);
     }
     
-    public List<Livre> rechercherLivresParCategorie(String categorie) {
-        return livreRepository.findByCategorie(categorie);
+    
+    
+   public List<Livre> rechercherLivresParCategorie(String categorie) {
+       return livreRepository.findByCategorie(categorie);
+   }
+    
+ //Affichage des disponibilités des livres dans le catalogue.
+
+    public List<Livre> obtenirLivresDisponibles() {
+        return livreRepository.findByDisponibilite(true);
     }
+        
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+  
+        
+    
+    
     
     
     
@@ -37,11 +101,7 @@ public class LivreService {
         return livreRepository.findById(id).orElse(null);
     }
 
-    public void saveLivre(Livre livre) {
-        livreRepository.save(livre);
-    }
+   
 
-    public void deleteLivre(Long id) {
-        livreRepository.deleteById(id);
-    }
+    
 }

@@ -1,4 +1,4 @@
-package net.javaguides.bibliotheque.Model;
+package net.javaguides.bibliotheque.Service;
 
 import net.javaguides.bibliotheque.Model.Categorie;
 

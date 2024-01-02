@@ -43,5 +43,49 @@ public class Emprunts {
     @JsonIgnore
     private  User user;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public LocalDate getDate_debut() {
+		return date_debut;
+	}
+
+	public void setDate_debut(LocalDate date_debut) {
+		this.date_debut = date_debut;
+	}
+
+	public LocalDate getDate_fin() {
+		return date_fin;
+	}
+
+	public void setDate_fin(LocalDate date_fin) {
+		this.date_fin = date_fin;
+	}
+
+	public Livre getLivre() {
+		return livre;
+	}
+
+	public void setLivre(Livre livre) {
+		this.livre = livre;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	
+    
+    
+
 
 }

@@ -16,9 +16,9 @@ import java.util.List;
 public class ReservationController {
 
     @Autowired
-    private net.javaguides.bibliotheque.service.LivreService livreservice;
+    private net.javaguides.bibliotheque.Service.LivreService livreservice;
     @Autowired
-    private net.javaguides.bibliotheque.service.UserService userService;
+    private net.javaguides.bibliotheque.Service.UserService userService;
     @Autowired
     private ReservationService reservationService;
 

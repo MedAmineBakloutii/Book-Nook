@@ -55,6 +55,11 @@ public class User implements Serializable {
 
     private List<Emprunts> emprunt;
 
+	public Long getIdUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 }
