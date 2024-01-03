@@ -1,13 +1,21 @@
 package com.example.biblio.Model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.time.LocalDate;
 @Data
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+
+@RequiredArgsConstructor
 @Table(name = "Emprunts")
+
 
 public class Emprunts {
 
@@ -15,11 +23,23 @@ public class Emprunts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
+
+    @NotNull
     @Column(nullable = false, name= "date_debut")
     private LocalDate date_debut;
 
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
+    @NotNull
     @Column(nullable = false, name= "date_fin")
     private LocalDate date_fin;
+
+    @ManyToOne
+    @JoinColumn(name = "livre_id_livre")
+    @JsonIgnore
+    private  Livre livre;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id_user")
+    @JsonIgnore
+    private  User user;
+
 }
